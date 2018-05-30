@@ -1,0 +1,21 @@
+<style>
+  .color-me-in {
+    background-color: <%= @color %>;
+    color: white;
+  }
+</style>
+
+<div class="color-me-in">
+  <%= @color %> BOX ACTIVATED!
+</div>
+
+<!-- The form_tag generates a form -->
+<%= form_tag index_path do %>
+
+    <p><%= text_field_tag :name, nil, placeholder: "What's your name?" %></p>
+    <p><%= submit_tag :submit %></p>
+
+<% end %>
+<!-- Check all this out in the browser inspecter to connect the dots!!! -->
+
+<!-- Forms make post requests by default, but you don't see that in the url path -->
