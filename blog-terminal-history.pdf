@@ -1,0 +1,18 @@
+368  cd Documents/classwork-code-immersion
+  369  md blog
+  370  cd blog
+  371  rails new tech_talent_blog
+  372  cd tech_talent_blog
+  373  rails g controller Practice index about
+  374  atom .
+  375  rails s
+  376  rails g scaffold Post title:string author:string blog_entry:text
+  377  rails db:migrate
+  378  bundle install
+  379  rails s
+  380  rails g scaffold Comment author:string comment_entry:text
+  381  rails db:migrate
+  382  rails g migration AddValueToComments post_id:integer
+  383  rails s
+  384  rails db:migrate
+  385  exit

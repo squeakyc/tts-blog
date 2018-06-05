@@ -11,17 +11,20 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
-
-  <div class="field">
+<!-- don't need author field anymore, since they'll be signed <ins></ins> -->
+<!--
+  <div class="form-group">
     <%= form.label :author %>
     <%= form.text_field :author %>
-  </div>
+  </div> -->
 
-  <div class="field">
+  <%= form.hidden_field :user_id, value: current_user.id %>
+
+  <div class="form-group">
     <%= form.label :blog_entry %>
     <%= form.text_area :blog_entry %>
   </div>

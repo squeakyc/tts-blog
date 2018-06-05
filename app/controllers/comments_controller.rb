@@ -69,7 +69,7 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:author, :comment_entry, :post_id)
+      params.require(:comment).permit(:author, :comment_entry, :post_id, :user_id)
       # This list makes it so that the form only allows the submissions listed so that a nefarious user can't edit the form to add things that weren't supposed to be added.
     end
 end

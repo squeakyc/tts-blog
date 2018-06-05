@@ -1,12 +1,19 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  # If you didn't have this before_action defined here, you'd have to have the set_post method defined in show, edit, update & destroy - that's not DRY
+  # Whenever you have identical code in a controller, put it inside a method and use a before_action.
 
   # GET /posts
   # GET /posts.json
   # This gets you an array-like structure of all the posts in the database and assigns them to posts. Then you can use posts in the view files.
   def index
-    @posts = Post.all
+    @posts = Post.all.page(params[:page])
   end
+
+def user_posts
+  @user = User.find_by(username: params[:name])
+  @posts = @user.posts.page(params[:page])
+end
 
   # GET /posts/1
   # GET /posts/1.json
@@ -72,6 +79,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :author, :blog_entry)
+      params.require(:post).permit(:title, :author, :blog_entry, :user_id)
     end
 end
